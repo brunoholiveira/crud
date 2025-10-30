@@ -1,13 +1,13 @@
 import connect from "../config/connection.js";
 
-let estudante = {}
+let veiculo = {}
 let con = await connect()
 
-estudante.create = async function (req, res) {
+veiculo.create = async function (req, res) {
     try {
-        let estudante = req.body;
-        let sql = "INSERT INTO estudante (matricula, nome_estudante, cidade_estudante) VALUES (?, ?, ?);";
-        let values = [estudante.matricula, estudante.nome_estudante, estudante.cidade_estudante];
+        let veiculo = req.body;
+        let sql = "INSERT INTO veiculo (placa_veiculo, modelo_veiculo, preco_veiculo) VALUES (?, ?, ?);";
+        let values = [veiculo.placa_veiculo, veiculo.modelo_veiculo, veiculo.preco_veiculo];
         let result = await con.query(sql, values);
         res.send({
             status:"Insert efetuado com sucesso",
@@ -20,7 +20,7 @@ estudante.create = async function (req, res) {
 
 estudante.all = async function (req, res) {
     try {
-        let sql = "SELECT * FROM estudante;";
+        let sql = "SELECT * FROM veiculo;";
         let result = await con.query(sql);
         res.send(JSON.stringify({status:200, error:null, response: result[0]}));
     } catch (e) {
@@ -29,4 +29,4 @@ estudante.all = async function (req, res) {
 }
         
 
-export default estudante;
+export default veiculo;
