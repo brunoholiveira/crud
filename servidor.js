@@ -1,5 +1,5 @@
 import express from 'express';
-import { router } from './routes/estudante_rota.js';
+import { router } from './routes/veiculo_rota.js';
 
 let server = express();
 server.use(express.json())
