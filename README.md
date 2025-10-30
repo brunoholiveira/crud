@@ -11,3 +11,6 @@ CREATE TABLE veiculo (
     modelo_veiculo VARCHAR(100) NOT NULL,
     preco_veiculo DECIMAL(10, 2) NOT NULL,
 );
+
+Iniciar o servidor
+- npm start
