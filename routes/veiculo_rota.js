@@ -1,10 +1,10 @@
 import express from 'express';
-import veiculo from '../controller/veiculo_controller';
+import veiculo from '../controller/veiculo_controller.js';
 
 let router = express.Router();
 router.post('/veiculo', veiculo.create);
 router.get('/veiculo', veiculo.all);
-router.delete('/veiculo/:placa_veiculo', veiculo.delete);
-router.put('/veiculo/:placa_veiculo', veiculo.update);
+router.delete('/veiculo', veiculo.delete);
+router.put('/veiculo', veiculo.update);
 
 export {router};
