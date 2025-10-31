@@ -4,7 +4,9 @@ import { router } from './routes/veiculo_rota.js';
 let server = express();
 server.use(express.json())
 
+let port = process.env.PORT || 3000;
+
 server.use("/", router);
-server.listen(3000, function() {
-    console.log("Servidor rodando na porta 3000");
+server.listen(port, function() {
+    console.log(`Servidor rodando na porta ${port}`);
 });
