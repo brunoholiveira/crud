@@ -35,6 +35,24 @@ veiculo.all = async function (req, res) {
   }
 };
 
+veiculo.findByModel = async function (req, res) {
+  try {
+    let con = await connect();
+
+    const { modelo } = req.params;
+
+    let sql = "SELECT * FROM veiculo WHERE modelo_veiculo LIKE ?;";
+    let values = [`%${modelo}%`];
+
+    let result = await con.query(sql, values);
+
+    res.send(JSON.stringify({ status: 200, error: null, response: result[0] }));
+  } catch (e) {
+    console.log("Erro ao buscar por modelo");
+    res.status(500).send({ status: "Erro no servidor", error: e.message });
+  }
+};
+
 veiculo.delete = async function (req, res) {
   try {
     let con = await connect();
